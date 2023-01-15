@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Generate letter</title>
+
+</head>
+
+<body>
+    <h1 class="text-center text-xl text-gray-700 font-bold fixed top-0 w-full bg-gray-200 p-2">Letter Generator</h1>
+    <p id="msg" class="fixed top-12 w-full text-center bg-red-400 text-red-900 p-2 font-bold text-xl hidden">All field Are Required</p>
+    <div class="h-screen flex justify-center items-center">
+    
+        <form action="" class="bg-gray-700 p-5 rounded-lg shadow-lg shadow-gray-900/90 w-[30%] text-center " id="form" name="myform">
+            <div class="p-3">
+                <label for="name" class="text-lg font-bold text-gray-400">Full Name:</label>
+                <br>
+                <input type="text" name="myname" id="name" class="w-[300px] focus:outline-none bg-gray-200 rounded-md border-2 p-1 border-gray-900 focus:bg-white  " required>
+            </div>
+            <div class="p-3">
+                <label for="usn" class="text-lg font-bold text-gray-400">Usn:</label>
+                <br>
+                <input type="text" name="myusn" id="usn" class="w-[300px] focus:outline-none bg-gray-200 rounded-md border-2 p-1 border-gray-900 focus:bg-white " required>
+            </div>
+            <div class="p-3">
+                <label for="sem" class="text-lg font-bold text-gray-400">Sem:</label>
+                <br>
+                <input type="number" name="mysem" id="sem" class="w-[300px] focus:outline-none bg-gray-200 rounded-md border-2 p-1 border-gray-900 focus:bg-white " required>
+            </div>
+            <div class="p-3">
+                <label for="branch" class="text-lg font-bold text-gray-400">Branch:</label>
+                <br>
+                <input type="text" name="mybranch" id="branch" class="w-[300px] focus:outline-none bg-gray-200 rounded-md border-2 p-1 border-gray-900 focus:bg-white " required>
+            </div>
+            <div class="p-3">
+                <label for="" class="text-lg font-bold text-gray-400">Select Option</label>
+                <select required name="myoptions" id="option" class="w-[300px] bg-gray-200 rounded-md border-2 p-1 border-gray-900 focus:bg-white">
+                 <option value="" disabled selected>Select Category</option>
+                    <option value="For Bonafide" class="bg-gray-200 text-gray-900 text-lg">For Bonafide</option>
+                    <option value="For Result" class="bg-gray-200 text-gray-900 text-lg">For Result</option>
+                    <option value="For Fees Structure" class="bg-gray-200 text-gray-900 text-lg">For Fees Structure</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="fixed bottom-16 left-[47%]">
+        <button id="btn"   class="bg-gray-500 p-2 rounded-md text-lg font-bold border-2 border-gray-400 hover:bg-gray-600 active:bg-gray-700 ">Generate</button>
+    </div>
+</body>
+<script type="module" src="index.js"></script>
+</html>

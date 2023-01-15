@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>My letter</title>
+</head>
+<!-- <script type="module/javascript"  src="./index.js"></script> -->
+<body class="font-mono text-xl h-screen">
+    <p id="succmsg" class="text-center p-2 bg-green-400 text-green-900 font-bold hidden">Letter Generated Successfully</p>
+
+    <div class="" id="content">
+    </div>
+    <script>
+    console.log("letter")
+    let name1=localStorage.getItem('name')
+    let usn=localStorage.getItem('usn')
+    let sem=localStorage.getItem('sem')
+    let branch=localStorage.getItem('branch')
+    let option=localStorage.getItem('option')
+    let date=new Date().toISOString().split('T')[0]
+    // console.log(date.getFullYear()+ "-" +date.getMonth()+1+"-"+date.getDate())
+    console.log(date)
+
+  let html= `<div class="container mx-auto">
+        <!-- <h1 id="a">name is: </h1> -->
+        <div class="p-2">
+            <h1 class=""><b>${name1}</b></h1>
+            <p>PDA COLLEGE OF ENGINEERING</p>
+            <P>GULBARGA 585102</P>
+        </div>
+        <div class="mt-2 p-2">
+            <p>Date : ${date}</p>
+        </div>
+        <div class="mt-5 p-2">
+            <h1><b>The Principal</b></h1>
+            <p>PDA COLLEGE OF ENGINEERING</p>
+            <p>AIWAN-E-SHAHI GULBRAGA</p>
+        </div>
+        <div class="mt-5 p-2 ">
+            <b>Subject : </b> <span class=" underline">Requesting letter to issue  ${option.slice(4)} ceritificate.</span>
+        </div>
+        <p class="mt-3 p-2"><b>Respected Sir/Mam ,</b></p>
+        <div class=" p-2">
+            <p class="">
+                I'm ${name1}, and i'm in the ${sem} semester of <b>${branch}</b> department at your college. i'm writing this application i require a
+                <b>${option.slice(4)} certificate</b> in order to apply the scholarship and other educational programs.
+            </p>
+
+            <p class="mt-3 ">
+              Please kindly provide me with the <b>${option.slice(4)} certificate</b>. i will be very thankful to you.
+            </p>
+        </div>
+        <div class="mt-5 p-2 ">
+            <b>Sincerely</b>
+            <br>
+            <p>Name:${name1}</p>
+            <p>Usn:${usn}</p>
+            <p>Dept:${branch}</p>
+        </div>
+    </div>
+    <div class="mx-5">
+        <button id="btn" class="bg-green-500 text-green-900 p-1 rounded-md  font-bold">Download</button>
+    </div>`
+
+let content=document.getElementById('content')
+content.innerHTML=html
+let btn=document.getElementById('btn')
+const succmsg=document.getElementById('succmsg')
+// window.onload=function(){
+succmsg.style.display="block"
+setInterval(()=>{
+    succmsg.style.display="none"
+},3000)
+btn.addEventListener("click",function(){
+    console.log(window)
+    html2pdf().from(content).save();
+})
+// }
+</script>
+</body>
+</html>
