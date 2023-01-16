@@ -55,23 +55,24 @@
               Please kindly provide me with the <b>${option.slice(4)} certificate</b>. i will be very thankful to you.
             </p>
         </div>
-        <div class="mt-5 p-2 ">
+        <div class="mt-5 p-2 mb-3 ">
             <b>Sincerely</b>
             <br>
             <p>Name:${name1}</p>
             <p>Usn:${usn}</p>
             <p>Dept:${branch}</p>
         </div>
-    </div>
-    <div class="mx-5">
+    
+    <div id="btn_div" class="mx-[50%]">
         <button id="btn" class="bg-green-500 text-green-900 p-1 rounded-md  font-bold">Download</button>
-    </div>`
+    </div>
+</div>`
 
 let content=document.getElementById('content')
 content.innerHTML=html
 let btn=document.getElementById('btn')
+let btn_div=document.getElementById('btn_div')
 const succmsg=document.getElementById('succmsg')
-// window.onload=function(){
 succmsg.style.display="block"
 setInterval(()=>{
     succmsg.style.display="none"
@@ -79,8 +80,9 @@ setInterval(()=>{
 btn.addEventListener("click",function(){
     console.log(window)
     html2pdf().from(content).save();
+    btn_div.innerHTML=""
 })
-// }
+
 </script>
 </body>
 </html>
