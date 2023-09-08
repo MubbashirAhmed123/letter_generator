@@ -6,27 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>My letter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>letter</title>
 </head>
-<!-- <script type="module/javascript"  src="./index.js"></script> -->
+
 <body class="font-mono text-xl h-screen">
-    <p id="succmsg" class="text-center p-2 bg-green-400 text-green-900 font-bold hidden">Letter Generated Successfully</p>
+    <p id="succmsg" class="text-center p-2 bg-green-400 text-green-900 font-bold hidden">Letter Generated Successfully
+    </p>
 
     <div class="" id="content">
     </div>
     <script>
-    console.log("letter")
-    let name1=localStorage.getItem('name')
-    let usn=localStorage.getItem('usn')
-    let sem=localStorage.getItem('sem')
-    let branch=localStorage.getItem('branch')
-    let option=localStorage.getItem('option')
-    let date=new Date().toISOString().split('T')[0]
-    // console.log(date.getFullYear()+ "-" +date.getMonth()+1+"-"+date.getDate())
-    console.log(date)
+        let name1 = localStorage.getItem('name')
+        let usn = localStorage.getItem('usn')
+        let sem = localStorage.getItem('sem')
+        let branch = localStorage.getItem('branch')
+        let option = localStorage.getItem('option')
+        let date = new Date().toISOString().split('T')[0]
+       
+        let html =
 
-  let html= `<div class="container mx-auto">
+            `<div class="container mx-auto">
         <!-- <h1 id="a">name is: </h1> -->
         <div class="p-2">
             <h1 class=""><b>${name1}</b></h1>
@@ -68,21 +70,24 @@
     </div>
 </div>`
 
-let content=document.getElementById('content')
-content.innerHTML=html
-let btn=document.getElementById('btn')
-let btn_div=document.getElementById('btn_div')
-const succmsg=document.getElementById('succmsg')
-succmsg.style.display="block"
-setInterval(()=>{
-    succmsg.style.display="none"
-},3000)
-btn.addEventListener("click",function(){
-    console.log(window)
-    html2pdf().from(content).save();
-    btn_div.innerHTML=""
-})
 
-</script>
+        let content = document.getElementById('content')
+        content.innerHTML = html
+
+        let btn = document.getElementById('btn')
+        let btn_div = document.getElementById('btn_div')
+        const succmsg = document.getElementById('succmsg')
+        succmsg.style.display = "block"
+        setInterval(() => {
+            succmsg.style.display = "none"
+        }, 3000)
+        btn.addEventListener("click", function () {
+            console.log(window)
+            html2pdf().from(content).save();
+            btn_div.innerHTML = ""
+        })
+
+    </script>
 </body>
+
 </html>

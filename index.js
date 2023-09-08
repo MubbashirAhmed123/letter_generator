@@ -1,12 +1,12 @@
 const btn=document.getElementById('btn')
-const name=document.getElementById('name')
-let usn=document.getElementById('usn')
+const name1=document.getElementById('name')
+const usn=document.getElementById('usn')
 const sem=document.getElementById('sem')
 const branch=document.getElementById('branch')
 const option=document.getElementById('option')
 const msg=document.getElementById('msg')
 btn.addEventListener("click",function(){
-const myname=name.value
+const myname=name1.value
 const myusn=usn.value
 const mysem=sem.value
 const mybranch=branch.value
